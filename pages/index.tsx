@@ -4,6 +4,7 @@ import Footer from "@/components/footer";
 import Meta from "@/components/meta";
 import Library from "@/components/library";
 import Header from "@/components/header";
+import { useState } from "react";
 
 const sans = Noto_Sans({
   subsets: ["latin"],
@@ -12,11 +13,17 @@ const sans = Noto_Sans({
 ;
 
 export default function Home() {
+  const [isModalOpen, setIsModalOpen] = useState(false);  
+
+  let handleClick = () => {
+    setIsModalOpen(true);
+  }
+
   return (
     <div className={`${sans.className} flex flex-col min-h-screen`}>
       <Meta />
-      <Header/>
-      <Library />
+      <Header handleClick={handleClick}/>
+      <Library isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/>
       <Footer />
     </div>
   );
