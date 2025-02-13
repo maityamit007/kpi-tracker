@@ -4,7 +4,7 @@ import React from 'react'
 
 function AssetCard({ asset, isTrending = false }: { asset: Asset, isTrending?: boolean }) {
   return (
-    <div className={`flex p-4 ${!isTrending ? 'bg-card border rounded-lg shadow-md' : ''} w-full max-w-sm`}>
+    <div className={`flex p-4 ${!isTrending ? 'bg-card border rounded-lg shadow-sm' : ''} w-full max-w-sm`}>
       <div className='flex-[30%] flex items-center justify-center'>
           <Image src="/link.png" alt= "" width={50} height={50}/>
       </div>
