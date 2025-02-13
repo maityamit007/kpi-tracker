@@ -3,7 +3,7 @@ import React from 'react'
 
 function SearchBar({ handleSearch }: { handleSearch: (e: React.ChangeEvent<HTMLInputElement>) => void }) {
   return (
-    <div className="relative w-[700px] mb-8">
+    <div className="relative mw-[127.04vh] mb-8">
       <input
         type="text"
         placeholder="Type to search..."

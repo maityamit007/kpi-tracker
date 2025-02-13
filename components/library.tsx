@@ -4,6 +4,8 @@ import { Asset } from "@/constants/constant";
 import SearchBar from "./searchBar";
 import Tabs from "./tab";
 import Modal from "./modal";
+import FeaturedContent from "./featuredContent";
+import TrendingContent from "./trendingContent";
 
 
 
@@ -14,7 +16,7 @@ const assets: Asset[] = [
 ];
 
 const tabs = [
-  { id: "featured", label: "Featured", content: <div>All Featured metrics here...</div> },
+  { id: "featured", label: "Featured", content: <FeaturedContent/> },
   { id: "kpi", label: "KPI", content: <div>All KPI metrics here...</div> },
   { id: "charts", label: "Layouts", content: <div>Select chart types...</div> },
   { id: "storyboards", label: "Storyboards", content: <div>Request access...</div> },
@@ -47,6 +49,7 @@ export default function Library({
       <div className="flex flex-col flex-1 gap-4">
         <Tabs tabs={tabs}/>
       </div>
+      <TrendingContent/>
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} title="Example Modal">
         This is some modal content. You can copy this!
       </Modal>

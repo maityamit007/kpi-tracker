@@ -1,6 +1,4 @@
-import Image from "next/image";
-import { Geist, Geist_Mono, Noto_Sans } from "next/font/google";
-import Footer from "@/components/footer";
+import { Noto_Sans } from "next/font/google";
 import Meta from "@/components/meta";
 import Library from "@/components/library";
 import Header from "@/components/header";
@@ -24,7 +22,6 @@ export default function Home() {
       <Meta />
       <Header handleClick={handleClick}/>
       <Library isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/>
-      <Footer />
     </div>
   );
 }

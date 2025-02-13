@@ -1,3 +1,5 @@
+import CopyLinkIcon from "@/constants/copyLink";
+import Image from "next/image";
 import React, { useRef } from "react";
 
 type ModalProps = {
@@ -41,7 +43,13 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
         className="bg-white rounded-lg shadow-lg p-6 w-full max-w-lg relative"
       >
         <button
-          className="absolute top-2 right-2 text-gray-500 hover:text-gray-800"
+          className="absolute top-2 right-10 text-gray-500 hover:text-gray-800"
+        >
+          <Image src="/link.png" className="font-light text-gray-300" alt="Copy Link" width={20} height={20} />
+        </button>
+
+        <button
+          className="absolute top-2 right-5 text-black hover:text-gray-800"
           onClick={onClose}
         >
           ✕
