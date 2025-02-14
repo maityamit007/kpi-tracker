@@ -1,7 +1,21 @@
 export type Asset = {
     id: number;
-    type: string;
     name: string;
     description: string;
     date?: string;
+};
+
+export type Datum = {
+  x: number;
+  y: number;
+};
+
+export type Series = {
+  name: string;
+  data: Datum[];
+};
+
+export type LayoutChartProps = {
+  data: Series[];
+  options?: Highcharts.Options;
 };

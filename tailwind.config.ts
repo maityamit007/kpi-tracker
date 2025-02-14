@@ -11,7 +11,7 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        card: "#f7fafc",
+        card: "#eef2f7",
       },
     },
   },

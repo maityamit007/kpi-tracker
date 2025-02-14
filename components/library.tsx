@@ -1,24 +1,35 @@
 import { useState } from "react";
 import AssetCard from "./assetCard";
-import { Asset } from "@/constants/constant";
+import { Asset, Series } from "@/constants/constant";
 import SearchBar from "./searchBar";
 import Tabs from "./tab";
 import Modal from "./modal";
 import FeaturedContent from "./featuredContent";
 import TrendingContent from "./trendingContent";
+import LayoutChart from "./layoutChart";
+const sampleData: Series[] = [
+  {
+    name: "Series 1",
+    data: [
+      { x: 1, y: 10 },
+      { x: 2, y: 15 },
+      { x: 3, y: 7 },
+    ],
+  },
+];
 
 
 
 const assets: Asset[] = [
-  { id: 1, type: "KPI", name: "Revenue Growth", description: "Tracks revenue increase over time." },
-  { id: 2, type: "Layout", name: "Sales Dashboard", description: "Displays KPIs for sales performance." },
-  { id: 3, type: "Storyboard", name: "Quarterly Review", description: "Presentation of quarterly performance." }
+  { id: 1,  name: "Revenue Growth", description: "Tracks revenue increase over time." },
+  { id: 2,  name: "Sales Dashboard", description: "Displays KPIs for sales performance." },
+  { id: 3,  name: "Quarterly Review", description: "Presentation of quarterly performance." }
 ];
 
 const tabs = [
   { id: "featured", label: "Featured", content: <FeaturedContent/> },
   { id: "kpi", label: "KPI", content: <div>All KPI metrics here...</div> },
-  { id: "charts", label: "Layouts", content: <div>Select chart types...</div> },
+  { id: "charts", label: "Layouts", content: <LayoutChart data={sampleData} options={{ title: { text: "Custom Title" } }} /> },
   { id: "storyboards", label: "Storyboards", content: <div>Request access...</div> },
 ];
 
