@@ -4,7 +4,7 @@ import React from 'react'
 
 function AssetCard({ asset, isTrending = false, handleClick }: { asset: Asset, isTrending?: boolean, handleClick: (event?: React.MouseEvent<HTMLButtonElement>) => void }) {
   return (
-    <div onClick={() => handleClick(asset.chartData)} className={`flex gap-7 p-4 ${!isTrending ? 'bg-card border rounded-lg shadow-sm' : ''} w-full max-w-sm`}>
+    <div onClick={() => handleClick(asset?.chartData ?? [...asset.modalData, {value: asset.hashtags , title: 'hashtags'}] )} className={`flex gap-7 p-4 ${!isTrending ? 'bg-card border rounded-lg shadow-sm' : ''} w-full max-w-sm`}>
       <div className='flex-[30%] flex items-center justify-center'>
           <Image src="/chart.jpg" alt= "" width={100} height={100}/>
       </div>

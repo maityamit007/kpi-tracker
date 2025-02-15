@@ -26,7 +26,7 @@ export default function Tabs({ tabs, setCurrentModal }: TabsProps) {
               }`}
             onClick={() => {
               setActiveTab(tab.id);
-              setCurrentModal(tab.id);
+              // setCurrentModal(tab.id);
             }}
           >
             {tab.label}

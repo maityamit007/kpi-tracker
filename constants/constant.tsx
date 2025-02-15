@@ -4,6 +4,8 @@ export type Asset = {
     description: string;
     date?: string;
     chartData?: any;
+    modalData?: any;
+    hashtags?:any;
 };
 
 export type Datum = {
@@ -31,4 +33,14 @@ export type ChartData = {
 export type ChartProps = {
   data: ChartData[];
 };
+
+export type KpiData = {
+  title: string;
+  value: any;
+  hashtags: any;
+};
+
+export type KpiProps = {
+  data: KpiData[];
+}
 
