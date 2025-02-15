@@ -50,7 +50,7 @@ export default function Library({
         return <Storyboard modalData={modalData[0]?.modalData} chartData={modalData[0]?.chartData} />
       case 'request':
         return <Storyboard modalData={storyBoardData[0]?.modalData} chartData={storyBoardData[0]?.chartData} />
-      default: return <>Request Access</>
+      default: return <></>
     }
   }, [modalData, currentModal]);
 
@@ -69,8 +69,6 @@ export default function Library({
 
     setFilteredAssets(filtered);
   };
-
-  console.log('filteredAssets', filteredAssets);
 
   const clearSearch = () => {
     setSearch("");

@@ -17,8 +17,6 @@ function List({
     handleClick: (event?: React.MouseEvent<HTMLButtonElement>) => void
 }) {
 
-    console.log('id', id);
-    console.log('data', data);
     return (
         <div className='cursor-pointer'>
             {title && <h1 className='text-3xl font-bold mt-10'>{title}</h1>}
