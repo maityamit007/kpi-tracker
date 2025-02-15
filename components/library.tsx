@@ -1,39 +1,27 @@
-import { useState } from "react";
-import AssetCard from "./assetCard";
-import { Asset, Series } from "@/constants/constant";
+import { useCallback, useState } from "react";
+import { Asset } from "@/constants/constant";
 import SearchBar from "./searchBar";
 import Tabs from "./tab";
 import Modal from "./modal";
 import Chart from "./chart";
 import Kpi from "./kpi";
 import List from "./list";
-const sampleData: Series[] = [
-  {
-    name: "Series 1",
-    data: [
-      { x: 1, y: 10 },
-      { x: 2, y: 15 },
-      { x: 3, y: 7 },
-    ],
-  },
-];
-
-
+import Storyboard from "./storyboard";
 
 export default function Library({
   isModalOpen,
-  setIsModalOpen
+  setIsModalOpen,
+  currentModal,
+  setCurrentModal
 }: {
   isModalOpen: boolean,
-  setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>
+  setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>,
+  currentModal: string,
+  setCurrentModal: React.Dispatch<React.SetStateAction<string>>
 }) {
-  const assets: Asset[] = [
-    { id: 1, name: "Revenue Growth", description: "Tracks revenue increase over time." },
-    { id: 2, name: "Sales Dashboard", description: "Displays KPIs for sales performance." },
-    { id: 3, name: "Quarterly Review", description: "Presentation of quarterly performance." }
-  ];
 
   const handleKpiClick = (data: any, type: string) => {
+    console.log('data', data);
     setIsModalOpen(true);
     setModalData(data);
     setCurrentModal(type)
@@ -43,15 +31,15 @@ export default function Library({
     { id: "featured", label: "Featured", content: <List title="Featured" desc="Curated picks from the week" handleClick={(data) => handleKpiClick(data, 'featured')} /> },
     { id: "kpi", label: "KPI", content: <List handleClick={(data) => handleKpiClick(data, 'kpi')} /> },
     { id: "charts", label: "Layouts", content: <List id="layout" handleClick={(data) => handleKpiClick(data, 'charts')} /> },
-    { id: "storyboards", label: "Storyboards", content: <List handleClick={(data) => handleKpiClick(data, 'storyboards')} /> },
+    { id: "storyboards", label: "Storyboards", content: <List id="story" handleClick={(data) => handleKpiClick(data, 'storyboards')} /> },
   ];
 
   const [search, setSearch] = useState<string>("");
-  const [filteredAssets, setFilteredAssets] = useState<Asset[]>(assets);
-  const [currentModal, setCurrentModal] = useState('featured');
+  const [filteredAssets, setFilteredAssets] = useState<Asset[]>();
   const [modalData, setModalData] = useState<any>([]);
 
-  const renderModal = () => {
+  const renderModal = useCallback(() => {
+    console.log(modalData)
     switch (currentModal) {
       case 'kpi':
       case 'featured':
@@ -59,17 +47,19 @@ export default function Library({
         return <Kpi data={modalData} />
       case 'charts':
         return <Chart data={modalData} />
-      default: return <Kpi data={modalData || []} />
+      case 'storyboards':
+        return <Storyboard modalData={modalData[0]?.modalData} chartData={modalData[0]?.chartData}/> 
+        default: return <>Request Access</>
     }
-  }
+  }, [modalData, currentModal])
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
-    setFilteredAssets(
-      assets.filter((asset) =>
-        asset.name.toLowerCase().includes(e.target.value.toLowerCase())
-      )
-    );
+    // setFilteredAssets(
+    //   assets.filter((asset) =>
+    //     asset.name.toLowerCase().includes(e.target.value.toLowerCase())
+    //   )
+    // );
   };
 
   return (
@@ -81,7 +71,7 @@ export default function Library({
         <Tabs tabs={tabs} setCurrentModal={setCurrentModal} />
       </div>
       <List title="Trending" desc="Popular By Community" handleClick={(data) => { handleKpiClick(data, 'trending') }} />
-      <Modal isOpen={isModalOpen} buttonName={'Favourite Item'} onClose={() => setIsModalOpen(false)} title="Request Access">
+      <Modal isOpen={isModalOpen} buttonName={'Favourite Item'} onClose={() => setIsModalOpen(false)} title="Assets">
         {renderModal()}
       </Modal>
     </main>

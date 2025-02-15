@@ -1,5 +1,6 @@
 import { KpiProps } from "@/constants/constant";
 import React from "react";
+import Chart from "./chart";
 
 type StatBoxProps = {
   value: number | string;
@@ -15,8 +16,7 @@ const StatBox: React.FC<StatBoxProps> = ({ value, title }) => {
   );
 };
 
-const Kpi: React.FC<KpiProps> = ({ data }) => {
-  console.log('data', data);
+const Kpi: React.FC<KpiProps> = ({ data, story, chartData }) => {
   return (
     <div className="text-center">
       <p>Those options are already baked in with this model shoot me an email clear blue water but we need distributors to evangelize the new line to local markets.</p>
@@ -28,7 +28,7 @@ const Kpi: React.FC<KpiProps> = ({ data }) => {
             </>))          
           ))}
       </div>
-
+      {story && <Chart data={chartData}/>}
       <div className="flex justify-center gap-3 overflow-hidden mt-10 mb-4">
         {data.filter((ele) => ele.title != "hashtags").map((stat, index) => (
           <StatBox key={index} value={stat.value} title={stat.title} />

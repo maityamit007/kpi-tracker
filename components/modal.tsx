@@ -1,4 +1,3 @@
-import CopyLinkIcon from "@/constants/copyLink";
 import Image from "next/image";
 import React, { useRef } from "react";
 
@@ -41,10 +40,11 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children, buttonN
     >
       <div
         ref={modalRef}
-        className="bg-white rounded-lg shadow-lg p-6 w-full max-w-lg relative"
+        className="modal-container bg-white rounded-lg shadow-lg p-6 w-full max-w-2xl relative h-[80vh] flex flex-col"
       >
         <button
           className="absolute top-2 right-10 text-gray-500 hover:text-gray-800"
+          onClick={handleCopy}
         >
           <Image src="/link.png" className="font-light text-gray-300" alt="Copy Link" width={20} height={20} />
         </button>
@@ -56,24 +56,26 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children, buttonN
           ✕
         </button>
 
-        {title && <h2 className="text-lg font-semibold mb-4">{title}</h2>}
+        {title && <h2 className="text-2xl font-semibold text-center mb-4">{title}</h2>}
 
-        <div className="mb-4">{children}</div>
-        <button
-          className="flex flex-row gap-3 items-center justify-center bg-black w-full text-white px-4 py-2 rounded-lg transition-opacity duration-500 ease-in-out hover:bg-gray-800"
-          onClick={handleCopy}
-        >
-          <svg
-            width={20}
-            height={20}
-            viewBox="0 0 24 24"
-            fill={'white'}
-            xmlns="http://www.w3.org/2000/svg"
+        <div className="modal-content mb-4 overflow-y-auto flex-grow min-h-0">{children}</div>
+
+        <div className="mt-auto">
+          <button
+            className="modal-footer flex flex-row gap-3 items-center justify-center bg-black w-full text-white px-4 py-2 rounded-lg transition-opacity duration-500 ease-in-out hover:bg-gray-800"
           >
-            <path d="M19 21L12 16L5 21V3H19V21Z" />
-          </svg> 
-          {buttonName}
-        </button>
+            <svg
+              width={20}
+              height={20}
+              viewBox="0 0 24 24"
+              fill={'white'}
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M19 21L12 16L5 21V3H19V21Z" />
+            </svg>
+            {buttonName}
+          </button>
+        </div>
       </div>
     </div>
   );

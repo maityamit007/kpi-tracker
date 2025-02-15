@@ -6,6 +6,7 @@ export type Asset = {
     chartData?: any;
     modalData?: any;
     hashtags?:any;
+    story?: boolean;
 };
 
 export type Datum = {
@@ -31,7 +32,7 @@ export type ChartData = {
 };
 
 export type ChartProps = {
-  data: ChartData[];
+  data?: ChartData[];
 };
 
 export type KpiData = {
@@ -42,5 +43,12 @@ export type KpiData = {
 
 export type KpiProps = {
   data: KpiData[];
+  story?: boolean;
+  chartData?: ChartData[];
+}
+
+export type StoryProps = {
+  chartData: ChartData[];
+  modalData: KpiData[];
 }
 

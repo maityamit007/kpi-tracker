@@ -13,7 +13,7 @@ export default function Button({
   return (
     <button
       onClick={onClick}
-      className={`px-4 py-2 flex items-center gap-2 flex-row rounded-lg font-medium transition bg-gray-500 text-white hover:bg-gray-300`}>
+      className={`px-4 py-2 flex items-center gap-2 flex-row rounded-lg font-medium transition bg-gray-500 text-white hover:bg-gray-600`}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"

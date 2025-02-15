@@ -126,6 +126,78 @@ export const chartData = [
   },
 ]
 
+export const storyBoardData = [
+  {
+    "id": 1,
+    "name": "Monthly Revenue",
+    'story': true,
+    "description": "Total revenue generated in the current month.",
+    "modalData": [
+      { value: 2485, title: "Used" },
+      { value: 'Universal', title: "Type" },
+      { value: 6, title: "Page No." },
+      { value: '07/23/2024', title: "Last Updated" },
+    ],
+    "chartData": [
+      {
+        "title": "Monthly Sales",
+        "chartType": "bar",
+        "category": "March",
+        "value": 300
+      },
+      {
+        "title": "Growth Over Time",
+        "chartType": "column",
+        "category": "2019",
+        "value": 100
+      },
+      {
+        "title": "Growth Over Time",
+        "chartType": "column",
+        "category": "2020",
+        "value": 200
+      },
+      {
+        "title": "Growth Over Time",
+        "chartType": "column",
+        "category": "2021",
+        "value": 400
+      }],
+    "type": "Trending",
+    "hashtags": ["#finance", "#growth", "#monthlyreport"]
+  },
+  {
+    "id": 2,
+    "name": "Customer Retention Rate",
+    'story': true,
+    "description": "Percentage of customers retained over the past quarter.",
+    "modalData": [
+      { value: 5478, title: "Used" },
+      { value: 'Local', title: "Type" },
+      { value: 7, title: "Page No." },
+      { value: '07/23/2024', title: "Last Updated" },
+    ],
+    "chartData": [{
+      "title": "Revenue Breakdown",
+      "chartType": "donut",
+      "category": "Product A",
+      "value": 50
+    },
+    {
+      "title": "Revenue Breakdown",
+      "chartType": "donut",
+      "category": "Product B",
+      "value": 30
+    },
+    {
+      "title": "Revenue Breakdown",
+      "chartType": "donut",
+      "category": "Product C",
+      "value": 20
+    }],
+    "type": "Featured",
+    "hashtags": ["#customerloyalty", "#retention", "#businessgrowth"]
+  }]
 
 export const kpiData = [
   {

@@ -1,6 +1,6 @@
 import React from 'react'
 import AssetCard from './assetCard'
-import { chartData, kpiData } from '@/constants/asset'
+import { chartData, kpiData, storyBoardData } from '@/constants/asset'
 
 function List({ id, title, desc, handleClick }: { id?: string, title?: string, desc?: string, handleClick: (event?: React.MouseEvent<HTMLButtonElement>) => void }) {
     return (
@@ -9,6 +9,10 @@ function List({ id, title, desc, handleClick }: { id?: string, title?: string, d
             {desc && <p className='mt-2 mb-10 text-gray-600'>{desc}</p>}
             <div className='flex flex-wrap border-2  gap-5'>
                 {id == 'layout' ? chartData.map((ele, index) => (
+                    <div className='border-2 w-[345px] gap-5' key={index}>
+                        <AssetCard asset={ele} isTrending={title == "Trending" ? true : false} handleClick={handleClick} />
+                    </div>
+                )) : (id == 'story') ? storyBoardData.map((ele, index) => (
                     <div className='border-2 w-[345px] gap-5' key={index}>
                         <AssetCard asset={ele} isTrending={title == "Trending" ? true : false} handleClick={handleClick} />
                     </div>

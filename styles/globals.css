@@ -8,6 +8,17 @@
   padding: 30px 0px 30px 0px;
 }
 
+.modal-container::-webkit-scrollbar,
+.modal-content::-webkit-scrollbar {
+  display: none;
+}
+
+.modal-container,
+.modal-content {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #e5eaf1;

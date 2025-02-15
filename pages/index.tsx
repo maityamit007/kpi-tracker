@@ -12,16 +12,18 @@ const sans = Noto_Sans({
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);  
+  const [currentModal, setCurrentModal] = useState('featured');
 
   let handleClick = () => {
     setIsModalOpen(true);
+    setCurrentModal('Request');
   }
 
   return (
     <div className={`${sans.className} flex flex-col min-h-screen`}>
       <Meta />
-      <Header handleClick={handleClick}/>
-      <Library isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/>
+      <Header handleClick={handleClick} />
+      <Library isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} setCurrentModal={setCurrentModal} currentModal={currentModal}/>
     </div>
   );
 }

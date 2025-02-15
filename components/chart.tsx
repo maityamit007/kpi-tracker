@@ -3,7 +3,7 @@ import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import { ChartProps } from "@/constants/constant";
 
-const Chart: React.FC<ChartProps> = ({ data }) => {
+const Chart: React.FC<ChartProps> = ({ data =[] }) => {
   if (data.length === 0) return <p>No data available</p>;
 
   const { title, chartType } = data[0];
