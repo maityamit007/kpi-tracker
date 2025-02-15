@@ -7,6 +7,7 @@ import Modal from "./modal";
 import FeaturedContent from "./featuredContent";
 import TrendingContent from "./trendingContent";
 import LayoutChart from "./layoutChart";
+import KpiList from "./kpiList";
 const sampleData: Series[] = [
   {
     name: "Series 1",
@@ -28,7 +29,7 @@ const assets: Asset[] = [
 
 const tabs = [
   { id: "featured", label: "Featured", content: <FeaturedContent/> },
-  { id: "kpi", label: "KPI", content: <div>All KPI metrics here...</div> },
+  { id: "kpi", label: "KPI", content: <KpiList data={sampleData} options={{ title: { text: "Custom Title" } }} />},
   { id: "charts", label: "Layouts", content: <LayoutChart data={sampleData} options={{ title: { text: "Custom Title" } }} /> },
   { id: "storyboards", label: "Storyboards", content: <div>Request access...</div> },
 ];

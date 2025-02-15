@@ -3,10 +3,10 @@ import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import { SeriesOptionsType } from "highcharts";
 import { LayoutChartProps } from "@/constants/constant";
-import { chartData } from "@/constants/asset";
+import { chartData, kpiData } from "@/constants/asset";
 import AssetCard from "./assetCard";
 
-const LayoutChart: React.FC<LayoutChartProps> = ({ data, options }) => {
+const KpiList: React.FC<LayoutChartProps> = ({ data, options }) => {
   const chartOptions: Highcharts.Options = {
     chart: {
       type: "line",
@@ -31,10 +31,10 @@ const LayoutChart: React.FC<LayoutChartProps> = ({ data, options }) => {
   };
 
   return (
-    <div style={{ width: "100%", height: "400px" , marginTop: '50px' }}>
+    <div style={{ width: "100%", height: "400px", marginTop: '50px' }}>
         <div className="cursor-pointer">
             <div className='flex flex-wrap border-2  gap-5'>
-                {chartData.map((ele) => (
+                {kpiData.map((ele) => (
                     <div className='border-2 w-[345px] gap-5'>
                         <AssetCard asset={ele} />
                     </div>
@@ -45,5 +45,5 @@ const LayoutChart: React.FC<LayoutChartProps> = ({ data, options }) => {
   );
 };
 
-export default LayoutChart;
+export default KpiList;
 

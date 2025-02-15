@@ -21,3 +21,104 @@ export const Assests = [
     { "id": 20, "name": "Website Traffic Insights", "description": "Visualizes website visitor trends", "date": "2024-02-20" }
   ]
   
+
+export const chartData = [
+  {
+    "id": 1,
+    "name": "Pie Chart",
+    "description": "Distribution of revenue generated from different products.",
+    "chartData": [
+      { "category": "Product A", "value": 40 },
+      { "category": "Product B", "value": 30 },
+      { "category": "Product C", "value": 20 },
+      { "category": "Product D", "value": 10 }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Line Graph",
+    "description": "Age-wise segmentation of the customer base.",
+    "chartData": [
+      { "category": "18-24", "value": 25 },
+      { "category": "25-34", "value": 35 },
+      { "category": "35-44", "value": 20 },
+      { "category": "45+", "value": 20 }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Scattered Plot",
+    "description": "Comparison of market share among key competitors.",
+    "chartData": [
+      { "category": "Company X", "value": 50 },
+      { "category": "Company Y", "value": 30 },
+      { "category": "Company Z", "value": 20 }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Donut Chart",
+    "description": "Breakdown of company expenses across different departments.",
+    "chartData": [
+      { "category": "Salaries", "value": 45 },
+      { "category": "Marketing", "value": 25 },
+      { "category": "R&D", "value": 15 },
+      { "category": "Operations", "value": 15 }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Bar",
+    "description": "Analysis of where website visitors are coming from.",
+    "chartData": [
+      { "category": "Organic", "value": 50 },
+      { "category": "Paid Ads", "value": 30 },
+      { "category": "Referrals", "value": 15 },
+      { "category": "Social Media", "value": 5 }
+    ]
+  }
+]
+
+
+export const kpiData = [
+  {
+    "id": 1,
+    "name": "Monthly Revenue",
+    "description": "Total revenue generated in the current month.",
+    "value": 500000,
+    "unit": "USD",
+    "trend": "up"
+  },
+  {
+    "id": 2,
+    "name": "Customer Retention Rate",
+    "description": "Percentage of customers retained over the past quarter.",
+    "value": 85,
+    "unit": "%",
+    "trend": "up"
+  },
+  {
+    "id": 3,
+    "name": "New Signups",
+    "description": "Number of new users who signed up this month.",
+    "value": 1200,
+    "unit": "users",
+    "trend": "up"
+  },
+  {
+    "id": 4,
+    "name": "Satisfaction Score",
+    "description": "Average satisfaction rating from recent surveys.",
+    "value": 4.5,
+    "unit": "out of 5",
+    "trend": "neutral"
+  },
+  {
+    "id": 5,
+    "name": "Churn Rate",
+    "description": "Percentage of customers lost in the past month.",
+    "value": 5,
+    "unit": "%",
+    "trend": "down"
+  }
+]

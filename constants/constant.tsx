@@ -3,6 +3,7 @@ export type Asset = {
     name: string;
     description: string;
     date?: string;
+    chartData?: any;
 };
 
 export type Datum = {
