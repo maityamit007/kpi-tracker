@@ -7,9 +7,10 @@ type ModalProps = {
   onClose: () => void;
   title?: string;
   children: React.ReactNode;
+  buttonName: string;
 };
 
-const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
+const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children, buttonName }) => {
   const modalRef = useRef<HTMLDivElement>(null);
 
   const handleClickOutside = (e: React.MouseEvent) => {
@@ -59,10 +60,19 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
 
         <div className="mb-4">{children}</div>
         <button
-          className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+          className="flex flex-row gap-3 items-center justify-center bg-black w-full text-white px-4 py-2 rounded-lg transition-opacity duration-500 ease-in-out hover:bg-gray-800"
           onClick={handleCopy}
         >
-          Copy
+          <svg
+            width={20}
+            height={20}
+            viewBox="0 0 24 24"
+            fill={'white'}
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M19 21L12 16L5 21V3H19V21Z" />
+          </svg> 
+          {buttonName}
         </button>
       </div>
     </div>

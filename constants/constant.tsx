@@ -20,3 +20,15 @@ export type LayoutChartProps = {
   data: Series[];
   options?: Highcharts.Options;
 };
+
+export type ChartData = {
+  title: string;
+  chartType: "pie" | "donut" | "bar" | "column" | "area";
+  category: string;
+  value: number;
+};
+
+export type ChartProps = {
+  data: ChartData[];
+};
+

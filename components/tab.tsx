@@ -8,9 +8,10 @@ type Tab = {
 
 type TabsProps = {
   tabs: Tab[];
+  setCurrentModal: React.Dispatch<React.SetStateAction<string>>
 };
 
-export default function Tabs({ tabs }: TabsProps) {
+export default function Tabs({ tabs, setCurrentModal }: TabsProps) {
   const [activeTab, setActiveTab] = useState(tabs[0].id);
 
   return (
@@ -23,7 +24,10 @@ export default function Tabs({ tabs }: TabsProps) {
               ? "text-gray-950 bg-white rounded-md"
               : "hover:text-gray-800"
               }`}
-            onClick={() => setActiveTab(tab.id)}
+            onClick={() => {
+              setActiveTab(tab.id);
+              setCurrentModal(tab.id);
+            }}
           >
             {tab.label}
           </button>
