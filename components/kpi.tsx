@@ -16,7 +16,7 @@ const StatBox: React.FC<StatBoxProps> = ({ value, title }) => {
   );
 };
 
-const Kpi: React.FC<KpiProps> = ({ data, story, chartData }) => {
+const Kpi: React.FC<KpiProps> = ({ data = [], story, chartData }) => {
   return (
     <div className="text-center">
       <p>Those options are already baked in with this model shoot me an email clear blue water but we need distributors to evangelize the new line to local markets.</p>

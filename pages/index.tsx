@@ -16,7 +16,7 @@ export default function Home() {
 
   let handleClick = () => {
     setIsModalOpen(true);
-    setCurrentModal('Request');
+    setCurrentModal('request');
   }
 
   return (

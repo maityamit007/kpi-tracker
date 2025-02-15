@@ -26,7 +26,7 @@ export type LayoutChartProps = {
 
 export type ChartData = {
   title: string;
-  chartType: "pie" | "donut" | "bar" | "column" | "area";
+  chartType: string;
   category: string;
   value: number;
 };
@@ -38,17 +38,17 @@ export type ChartProps = {
 export type KpiData = {
   title: string;
   value: any;
-  hashtags: any;
+  hashtags?: any;
 };
 
 export type KpiProps = {
-  data: KpiData[];
+  data?: KpiData[];
   story?: boolean;
   chartData?: ChartData[];
 }
 
 export type StoryProps = {
-  chartData: ChartData[];
-  modalData: KpiData[];
+  chartData?: ChartData[];
+  modalData?: KpiData[];
 }
 

@@ -7,6 +7,7 @@ import Chart from "./chart";
 import Kpi from "./kpi";
 import List from "./list";
 import Storyboard from "./storyboard";
+import { storyBoardData } from "@/constants/asset";
 
 export default function Library({
   isModalOpen,
@@ -21,7 +22,6 @@ export default function Library({
 }) {
 
   const handleKpiClick = (data: any, type: string) => {
-    console.log('data', data);
     setIsModalOpen(true);
     setModalData(data);
     setCurrentModal(type)
@@ -48,8 +48,10 @@ export default function Library({
       case 'charts':
         return <Chart data={modalData} />
       case 'storyboards':
-        return <Storyboard modalData={modalData[0]?.modalData} chartData={modalData[0]?.chartData}/> 
-        default: return <>Request Access</>
+        return <Storyboard modalData={modalData[0]?.modalData} chartData={modalData[0]?.chartData} />
+      case 'request':
+        return <Storyboard modalData={storyBoardData[0]?.modalData} chartData={storyBoardData[0]?.chartData} />
+      default: return <>Request Access</>
     }
   }, [modalData, currentModal])
 
@@ -71,7 +73,7 @@ export default function Library({
         <Tabs tabs={tabs} setCurrentModal={setCurrentModal} />
       </div>
       <List title="Trending" desc="Popular By Community" handleClick={(data) => { handleKpiClick(data, 'trending') }} />
-      <Modal isOpen={isModalOpen} buttonName={'Favourite Item'} onClose={() => setIsModalOpen(false)} title="Assets">
+      <Modal isOpen={isModalOpen} currentModal={currentModal} buttonName={['storyboards', 'request'].includes(currentModal) ? 'Request Access' : 'Favourite Item'} onClose={() => setIsModalOpen(false)} title="Assets">
         {renderModal()}
       </Modal>
     </main>
