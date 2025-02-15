@@ -1,8 +1,24 @@
 import React from 'react'
 import AssetCard from './assetCard'
 import { chartData, kpiData, storyBoardData } from '@/constants/asset'
+import { Asset } from '@/constants/constant'
 
-function List({ id, title, desc, handleClick }: { id?: string, title?: string, desc?: string, handleClick: (event?: React.MouseEvent<HTMLButtonElement>) => void }) {
+function List({
+    id,
+    title,
+    desc,
+    data = [],
+    handleClick
+}: {
+    id?: string,
+    title?: string,
+    desc?: string,
+    data?: Asset[],
+    handleClick: (event?: React.MouseEvent<HTMLButtonElement>) => void
+}) {
+
+    console.log('id', id);
+    console.log('data', data);
     return (
         <div className='cursor-pointer'>
             {title && <h1 className='text-3xl font-bold mt-10'>{title}</h1>}
@@ -13,6 +29,10 @@ function List({ id, title, desc, handleClick }: { id?: string, title?: string, d
                         <AssetCard asset={ele} isTrending={title == "Trending" ? true : false} handleClick={handleClick} />
                     </div>
                 )) : (id == 'story') ? storyBoardData.map((ele, index) => (
+                    <div className='border-2 w-[345px] gap-5' key={index}>
+                        <AssetCard asset={ele} isTrending={title == "Trending" ? true : false} handleClick={handleClick} />
+                    </div>
+                )) : (id == "search") ? data.map((ele, index) => (
                     <div className='border-2 w-[345px] gap-5' key={index}>
                         <AssetCard asset={ele} isTrending={title == "Trending" ? true : false} handleClick={handleClick} />
                     </div>

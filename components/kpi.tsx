@@ -24,8 +24,8 @@ const Kpi: React.FC<KpiProps> = ({ data = [], story, chartData }) => {
         {
           data.filter((ele) => ele.title == "hashtags").map((ele) => (
             ele.value.map((e: string) => (<>
-              <div className="border-2 max-w-32 text-xs border-gray-300 rounded-md p-2 bg-gray-200">{e}</div>
-            </>))          
+              <div className="border-2 max-w-32 text-xs border-gray-300 rounded-md p-2 bg-gray-200 whitespace-normal break-words">{e}</div>
+            </>))
           ))}
       </div>
       {story && <Chart data={chartData}/>}
